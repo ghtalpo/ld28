@@ -3,16 +3,16 @@ package ent;
 class Heart extends Entity {
 
 	public var active = true;
-	
+
 	override function update(dt:Float) {
 		cw = 5; ch = 5;
 		gravity = 0.05;
 		super.update(dt);
 		if( active ) {
 			for( e in fight.entities ) {
-				var m = Std.instance(e, Mob);
+				var m = Std.downcast(e, Mob);
 				if( m == null ) continue;
-				
+
 				if( colWith(m)  ) {
 					m.hit(fight.game.stats.att);
 					dx = 0;
@@ -28,5 +28,5 @@ class Heart extends Entity {
 				remove();
 		}
 	}
-	
+
 }

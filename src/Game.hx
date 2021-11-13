@@ -25,7 +25,8 @@ class Game extends hxd.App {
 		scene = s2d;
 		updates = [];
 		buildings = new Map();
-		s2d.setFixedSize(Const.W, Const.H + 12);
+		// s2d.setFixedSize(Const.W, Const.H + 12);
+		s2d.scaleMode = Stretch(Const.W, Const.H + 12);
 		world = new World(Res.map, Res.tiles);
 		s2d.add(world.root, 0);
 		font = Res.minecraftia_regular_6.toFont();
@@ -265,10 +266,10 @@ class Game extends hxd.App {
 		if( bi != null ) {
 			switch( bi.kind ) {
 			case BWheat:
-				Std.instance(bi, std.b.Wheat).level++;
+				Std.downcast(bi, std.b.Wheat).level++;
 				announce("Wheat will grow faster", Wheat, 0xFF00);
 			case BCastle:
-				Std.instance(bi, std.b.Castle).maxLevel++;
+				Std.downcast(bi, std.b.Castle).maxLevel++;
 				announce("New Castle Level available!", Sword, 0xFF80FF);
 			default:
 			}

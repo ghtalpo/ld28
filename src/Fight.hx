@@ -140,7 +140,7 @@ class Fight {
 		if( root.parent == null ) return;
 		root.remove();
 		game.fight = null;
-		Std.instance(game.buildings.get(BCastle), b.Castle).endFight(this.level,win);
+		Std.downcast(game.buildings.get(BCastle), b.Castle).endFight(this.level,win);
 	}
 
 	public function update(dt:Float) {

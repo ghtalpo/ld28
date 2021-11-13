@@ -8,7 +8,8 @@ class Title extends hxd.App {
 	var alphaMap : h3d.shader.AlphaMap;
 
 	override function init() {
-		s2d.setFixedSize(Const.W, Const.H + 12);
+		// s2d.setFixedSize(Const.W, Const.H + 12);
+		s2d.scaleMode = Stretch(Const.W, Const.H + 12);
 		bg = new h2d.Object(s2d);
 		bg.scale(2);
 		var b1 = new h2d.Bitmap(Res.title.toTile(), bg);

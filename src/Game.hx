@@ -25,7 +25,6 @@ class Game extends hxd.App {
 		scene = s2d;
 		updates = [];
 		buildings = new Map();
-		// s2d.setFixedSize(Const.W, Const.H + 12);
 		s2d.scaleMode = Stretch(Const.W, Const.H + 12);
 		world = new World(Res.map, Res.tiles);
 		s2d.add(world.root, 0);

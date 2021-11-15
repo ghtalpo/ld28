@@ -1,18 +1,36 @@
+/**
+	title app
+**/
 class Title extends hxd.App {
 
 	var bg : h2d.Object;
-	var time = 0.;
+	/**
+		time for bg rotation
+	**/
+	var time = 0.; 
+	/**
+		blurred title bitmap
+	**/
 	var b : h2d.Bitmap;
+	/**
+		start prompt
+	**/
 	var start : h2d.Text;
+	/**
+		time for prompt toggling
+	**/
 	var stime = 0.;
+	/**
+		alpha map shader for cloud shadows
+	**/
 	var alphaMap : h3d.shader.AlphaMap;
 
 	override function init() {
 		s2d.scaleMode = Stretch(Const.W, Const.H + 12);
 		bg = new h2d.Object(s2d);
 		bg.scale(2);
-		var b1 = new h2d.Bitmap(Res.title.toTile(), bg);
-		b = new h2d.Bitmap(Res.title2.toTile(), bg);
+		var b1 = new h2d.Bitmap(Res.title.toTile(), bg); // clean title 
+		b = new h2d.Bitmap(Res.title2.toTile(), bg); // blurred tiltle
 
 		alphaMap = b.addShader(new h3d.shader.AlphaMap(Res.clouds.toTexture()));
 

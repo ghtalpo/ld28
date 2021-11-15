@@ -1,18 +1,42 @@
 import Const;
 
+/**
+	game app
+**/
 @:publicFields
 class Game extends hxd.App {
 
 	public static inline var DEBUG = false;
 	public static inline var ADMIN = false;
 
+	/**
+		scene for layers
+	**/
 	public var scene : h2d.Scene;
 	public var font : h2d.Font;
+	/**
+		world for tiles & layers
+	**/
 	public var world : World;
+	/**
+		owned buildings
+	**/
 	public var buildings : Map<BuildingKind,Building>;
+	/**
+		current dialog
+	**/
 	public var curDialog : h2d.Object;
+	/**
+		item inventory
+	**/
 	public var inventory : Array<Bool>;
+	/**
+		animation sequences, used in world and fight
+	**/
 	var anims : Array<Array<h2d.Tile>>;
+	/**
+		item tiles
+	**/
 	var items : Array<h2d.Tile>;
 	var invSpr : h2d.Object;
 	var updates : Array < { function update(dt:Float) : Void; }>;
@@ -22,7 +46,7 @@ class Game extends hxd.App {
 	var knownItems : Array<Bool>;
 
 	override function init() {
-		scene = s2d;
+		scene = s2d; // default 2d scene
 		updates = [];
 		buildings = new Map();
 		s2d.scaleMode = Stretch(Const.W, Const.H + 12);
@@ -355,6 +379,9 @@ class Game extends hxd.App {
 		}
 	}
 
+	/**
+		game instance
+	**/
 	public static var inst : Game;
 	static function main() {
 		hxd.Res.initEmbed();
